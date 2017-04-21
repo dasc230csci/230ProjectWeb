@@ -10,9 +10,10 @@ AdminFuncController afc = ((AdminFuncController)session.getAttribute("adminC"));
 AccountController ac = new AccountController();
 
 //out.println("Hello User " + afc.getProfile(username).getUsername());
-%>;
+%>
 <%
-for(Account a : ac.getAccountList()){%>; 
+for(Account a : ac.getAccountList()){%>
+<br>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
@@ -33,7 +34,7 @@ href="Add.jsp">ADD A USER</a> </td>
 <td style="vertical-align: top;">
 <form method="post" action="Edit.jsp" name="Edit"> <input
 name="Edit" value="Edit" type="submit"> <input name="Username"
-value="<%out.print(a.getUsername());%>" type="hidden=">" </form>
+value="<%out.print(a.getUsername());%>" type="hidden="> </form>
 </td>
 <td style="vertical-align: top;">
 <%out.print(a.getFirstName());%> </td>
@@ -45,7 +46,7 @@ value="<%out.print(a.getUsername());%>" type="hidden=">" </form>
 <%out.print(a.getType());%> </td>
 <td style="vertical-align: top;">
 <%out.print(a.getStatus());%> </td>
-<%}%>;
+<%}%>
 <td style="vertical-align: top;">
 <form method="post" action="Delete.jsp" name="Delete"> <input
 name="Delete" value="Delete" type="submit"> <input name="Username"

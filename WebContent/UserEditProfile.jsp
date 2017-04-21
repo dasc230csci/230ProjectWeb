@@ -86,11 +86,11 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 <form method="post" action="Edit_action.jsp" name="editInfo">
 <table
-style="text-align: left; width: 1318px; height: 154px; margin-left: auto; margin-right: auto;"
+style="text-align: left; width: 500px; height: 154px; margin-left: auto; margin-right: auto;"
 border="1" cellpadding="2" cellspacing="2">
 <tbody>
 <tr>
-<td style="vertical-align: top; width: 1000px;">First Name<br>
+<td style="vertical-align: top; width: 300px;">First Name<br>
 </td>
 <td style="vertical-align: top;"><input name="FirstName"
 value=<%out.print(uUI.viewProfile().getFirstName());%> ><br>

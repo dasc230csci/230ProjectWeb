@@ -8,7 +8,7 @@ http-equiv="content-type">
 <title>AdminMenuReal</title>
 </head>
 <body>
-<a href="Add.jsp">Manage Universities</a>
+<a href="ManageUniversityMenu.jsp">Manage Universities</a>
 <br>
 <a href="manageUsers.jsp">Manage Users</a>
 </body>

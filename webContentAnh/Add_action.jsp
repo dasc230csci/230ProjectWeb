@@ -7,15 +7,23 @@ String uname = request.getParameter("Username");
 String password = request.getParameter("Password");
 String type = request.getParameter("Type");
 String status = request.getParameter("Status");
-boolean create = true;
-for(Account account : aUI.viewAllUser()){
-	if(account.getUsername().equals(uname)){
-		response.sendRedirect("Add.jsp?Error=1");
-		create = false;
-	}
+int verifyCreate = aUI.createUser(fname, lname, uname, password, type, status);
+if(verifyCreate==0){
+response.sendRedirect("Add.jsp");
 }
-if(create){
-aUI.createUser(fname, lname, uname, password, type, status);
-response.sendRedirect("AdminMenu.jsp");
+else if(verifyCreate==-1){
+	response.sendRedirect("Add.jsp?Error=-1");
+}
+else if(verifyCreate==-2){
+	response.sendRedirect("Add.jsp?Error=-2");
+}
+else if(verifyCreate==-3){
+	response.sendRedirect("Add.jsp?Error=-3");
+}
+else if(verifyCreate==-4){
+	response.sendRedirect("Add.jsp?Error=-4");
+}
+else{
+	response.sendRedirect("Add.jsp?Error = -5");
 }
 %>

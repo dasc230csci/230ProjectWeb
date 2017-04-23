@@ -5,8 +5,20 @@
 <title>Add User Form</title>
 <%
 	String error = request.getParameter("Error");
-	if(error != null && error.equals("1")){
+	if(error != null && error.equals("-1")){
 		out.println("Please choose different username");
+}
+	if(error != null && error.equals("-2")){
+		out.println("Please input value in the required fields");
+}
+	if(error != null && error.equals("-3")){
+		out.println("Invalid type, please input a(admin) or u(user)");
+}
+	if(error != null && error.equals("-4")){
+		out.println("Invalid status, please input Y(active) or N(inactive)");
+}
+	if(error != null && error.equals("-5")){
+		out.println("Add user failed, please try again");
 }
 %>
 </head>

@@ -6,7 +6,7 @@ LoginUI ui = new LoginUI();
 String verify = ui.verifyUser(username, password);
 if(verify.equals("u")){
 	UserUI userUi = new UserUI(username);
-	session.setAttribute("UserUI", userUi);
+	session.setAttribute("userUi", userUi);
 	response.sendRedirect("UserMenu.jsp");
 }
 else if(verify.equals("a")){

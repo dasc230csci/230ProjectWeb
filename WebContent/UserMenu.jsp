@@ -86,7 +86,7 @@ li a:hover {
 <body>
 <ul>
   <li><a class="active" href="SearchMenu.jsp">Search for Schools</a></li>
-  <li><a class ="active" href="SavedSchool">Manage My Saved Schools</a></li>
+  <li><a class ="active" href="ManageSavedSchools.jsp">Manage My Saved Schools</a></li>
   <li><a class = "active" href ="UserEditProfile.jsp">Manage My Profile</a></li>
 </ul>
 <br>

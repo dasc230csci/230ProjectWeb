@@ -19,6 +19,7 @@
 	String enrolled = request.getParameter("enrolInput");
 	String acedemicS = request.getParameter("acScaleInput");
 	String qualOfLifeS = request.getParameter("qualScaleInput");
+	String socScale = request.getParameter("socScaleInput");
 	String emphases1 = request.getParameter("emphases1");
 	String emphases2 = request.getParameter("emphases2");
 	String emphases3 = request.getParameter("emphases3");
@@ -42,18 +43,23 @@
 	schoolInfo.add(11, admitted);
 	schoolInfo.add(12, enrolled);
 	schoolInfo.add(13, acedemicS);
-	schoolInfo.add(14, qualOfLifeS);
-	schoolInfo.addAll(15, emphases);
+	schoolInfo.add(14, socScale);
+	schoolInfo.add(15, qualOfLifeS);
+	schoolInfo.addAll(16, emphases);
 	
-	//for(University Uni: adminC.getUniversityList()){
-		//if(Uni.){
-			//response.sendRedirect("Add.jsp?Error=1");
-			//canCreate = false;
-		//}
+	for(Entity.University Uni: adminC.getUniversityList()){
+		if(Uni.getSchoolName().equals(schoolName)){
+			canCreate = false;
+			response.sendRedirect("Add.jsp?Error=1");
+		}
+	}
 	if(canCreate){
 		boolean added = adminC.addUniversity(schoolInfo);
-		response.sendRedirect("AddUniversity.jsp");
+		if(added){
+		response.sendRedirect("AddUniversity.jsp?Error=2");
+		}
 	}
+
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

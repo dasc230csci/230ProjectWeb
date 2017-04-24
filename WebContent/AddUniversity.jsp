@@ -6,6 +6,12 @@
 <meta content="text/html; charset=ISO-8859-1"
 http-equiv="content-type">
 <title>addUniversity</title>
+<%String success = request.getParameter("Error");
+if(success != null && success.equals("2")){
+	out.println("School successfully added");
+	//response.sendRedirect("AdminMenu.jsp?Error=2");
+}
+%> 
 </head>
 <body>
 <form method="post" action="addUni_action.jsp" name="addUniversity">

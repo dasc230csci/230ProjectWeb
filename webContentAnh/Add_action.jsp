@@ -24,6 +24,6 @@ else if(verifyCreate==-4){
 	response.sendRedirect("Add.jsp?Error=-4");
 }
 else{
-	response.sendRedirect("Add.jsp?Error = -5");
+	response.sendRedirect("Add.jsp?Error=-5");
 }
 %>

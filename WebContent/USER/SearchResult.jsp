@@ -50,7 +50,8 @@ cellspacing="2">
 <td colspan="8" rowspan="1" style="vertical-align: top;">School
 List</td>
 </tr>
-<%for(University univ : recommendationList){%>
+<%for(University univ : recommendationList){
+if(univ.getSchoolName().equals(request.getParameter("schoolName"))){continue;}%>
 <tr>
 <td style="vertical-align: top;">
 <form method="post" action="SaveSchool.jsp" name="Save"><input

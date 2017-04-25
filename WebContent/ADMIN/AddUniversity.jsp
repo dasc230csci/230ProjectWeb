@@ -1,20 +1,13 @@
 <%@ page language="java" import="Controller.*"%>
-<%@include file="verifyLogin.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta content="text/html; charset=ISO-8859-1"
 http-equiv="content-type">
 <title>addUniversity</title>
-<%String success = request.getParameter("Error");
-if(success != null && success.equals("2")){
-	out.println("School successfully added");
-	//response.sendRedirect("AdminMenu.jsp?Error=2");
-}
-%> 
 </head>
 <body>
-<form method="post" action="addUni_action.jsp" name="addUniversity">
+<form method="post" action="AddUniversity_action.jsp" name="AddUniversity">
 <br>
 	<table style="text-align: left; height: 541px; width: 959px;" border="1"
 	cellpadding="2" cellspacing="2">
@@ -139,7 +132,7 @@ if(success != null && success.equals("2")){
 		</td>
 		<td style="vertical-align: top; width: 218px;"><input
 		name="emphases1"><input name="emphases2"><input name="emphases3"><input
-		name="emphases4"><br>
+		name="emphases4"><input name="emphases5"><br>
 		</td>
 	</tr>
 	<tr>

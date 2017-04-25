@@ -1,4 +1,5 @@
 <%@page language="java" import="UI.*" import = "Entity.*"%>
+<%@include file="userVerifyLogin.jsp"%>
 <% UserUI uUI = (UserUI)session.getAttribute("userUi"); 
 %>
 <html>
@@ -86,16 +87,11 @@ li a:hover {
 <body>
 <ul>
   <li><a class="active" href="SearchMenu.jsp">Search for Schools</a></li>
-  <li><a class ="active" href="ManageSavedSchools.jsp">Manage My Saved Schools</a></li>
-  <li><a class = "active" href ="UserEditProfile.jsp">Manage My Profile</a></li>
+  <li><a class ="active" href="ManageSavedSchool.jsp">Manage My Saved Schools</a></li>
+  <li><a class ="active" href ="UserEditProfile.jsp">Manage My Profile</a></li>
 </ul>
 <br>
-<br>
-<div align="center">
-Hello User <%out.println(uUI.viewProfile().getUsername()); %> 
-</div>
-<br>
-<br>
+Hello User <%out.println(uUI.getUsername());%>
 <div class="slideshow-container">
 
 <div class="slide fade">

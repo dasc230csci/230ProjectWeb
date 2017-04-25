@@ -1,5 +1,5 @@
 <%@page language="java" import="UI.*, Entity.*"%>
-<%@include file="verifyLogin.jsp"%>
+<%@include file="adminVerifyLogin.jsp"%>
 <html>
 <head>
 <title></title>

@@ -1,6 +1,6 @@
 <%@page language="java" import="UI.*" import = "Entity.*"%>
 <% 
-AdminUI aUI = (AdminUI)session.getAttribute("adminUI");
+AdminUI aUI = (AdminUI)session.getAttribute("adminUi");
 %>
 <html>
 <head>
@@ -8,14 +8,14 @@ AdminUI aUI = (AdminUI)session.getAttribute("adminUI");
 </head>
 <body>
 
-Hello User <% out.println(aUI.getUsername()); %>
+Hello User <% out.println(aUI.viewProfile().getUsername()); %>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
 <tr align="center">
 
 <td colspan="8" rowspan="1" style="vertical-align: top;"><a
-href="Add.jsp">ADD A USER</a>
+href="AddUser.jsp">ADD A USER</a>
 </td>
 
 </tr>
@@ -38,17 +38,17 @@ for(Account account: aUI.viewAllUser()){
 %>
 <tr>
 <td style="vertical-align: top;">
-<form method="post" action="Edit.jsp" name="Edit">
+<form method="post" action="EditUser.jsp" name="EditUser">
     <input name="Edit" value="Edit" type="submit">
     <input name="Username" value=<%out.print(account.getUsername());%> type="hidden">
 </form>
-<td style="vertical-align: top;"><% out.println(account.getUsername()); %>
+<td style="vertical-align: top;"><%out.println(account.getUsername());%>
 </td>
-<td style="vertical-align: top;"><%out.println(account.getPassword()); %>
+<td style="vertical-align: top;"><%out.println(account.getPassword());%>
 </td>
-<td style="vertical-align: top;"><%out.println(account.getType()); %>
+<td style="vertical-align: top;"><%out.println(account.getType());%>
 </td>
-<td style="vertical-align: top;"><% out.println(account.getStatus()); %>
+<td style="vertical-align: top;"><%out.println(account.getStatus());%>
 </td>
 <td style="vertical-align: top;">
 <form method="post" action="Deactivate.jsp" name="Deactivate">

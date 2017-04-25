@@ -1,4 +1,5 @@
 <%@ page language="java" import="UI.*, Entity.*, java.util.*"%>
+<%@include file="userVerifyLogin.jsp" %>
 <%
 UserUI userUi = (UserUI)session.getAttribute("userUi");
 ArrayList<University> list = new ArrayList<University>();
@@ -132,7 +133,7 @@ readonly="readonly" name="qualOfLifeScale" value="<%out.print(univ.getQualOfLife
 </table>
 <%for(University u: list){%>
 <br>
-<form method="post" action="Save.jsp" name="Save"><input name="Save"
+<form method="post" action="SaveSchool.jsp" name="Save"><input name="Save"
 value="Save" type="submit"><input name="schoolName" value="<%out.print(u.getSchoolName());%>"
 type="hidden"></form> MAY WE ALSO RECOMMEND<br>
 <table style="text-align: left; width: 1137px; height: 540px;"

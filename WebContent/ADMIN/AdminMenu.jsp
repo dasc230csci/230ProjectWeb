@@ -10,6 +10,6 @@ http-equiv="content-type">
 <body>
 <a href="ManageUniversityMenu.jsp">Manage Universities</a>
 <br>
-<a href="manageUsers.jsp">Manage Users</a>
+<a href="ManageUserMenu.jsp">Manage Users</a>
 </body>
 </html>

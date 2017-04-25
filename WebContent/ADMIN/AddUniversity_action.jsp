@@ -18,16 +18,19 @@
 	String admitted = request.getParameter("admitInput");
 	String enrolled = request.getParameter("enrolInput");
 	String acedemicS = request.getParameter("acScaleInput");
+	String socialS = request.getParameter("socScaleInput");
 	String qualOfLifeS = request.getParameter("qualScaleInput");
 	String emphases1 = request.getParameter("emphases1");
 	String emphases2 = request.getParameter("emphases2");
 	String emphases3 = request.getParameter("emphases3");
 	String emphases4 = request.getParameter("emphases4");
+	String emphases5 = request.getParameter("emphases5");
 	ArrayList<String> emphases = new ArrayList<String>();
-	emphases.add(0, emphases1);
-	emphases.add(1, emphases2);
-	emphases.add(2, emphases3);
-	emphases.add(3, emphases4);
+	emphases.add(emphases1);
+	emphases.add(emphases2);
+	emphases.add(emphases3);
+	emphases.add(emphases4);
+	emphases.add(emphases5);
 	schoolInfo.add(0, schoolName);
 	schoolInfo.add(1, state);
 	schoolInfo.add(2, location);
@@ -42,8 +45,9 @@
 	schoolInfo.add(11, admitted);
 	schoolInfo.add(12, enrolled);
 	schoolInfo.add(13, acedemicS);
-	schoolInfo.add(14, qualOfLifeS);
-	schoolInfo.addAll(15, emphases);
+	schoolInfo.add(14, socialS);
+	schoolInfo.add(15, qualOfLifeS);
+	schoolInfo.addAll(16, emphases);
 	
 	//for(University Uni: adminC.getUniversityList()){
 		//if(Uni.){

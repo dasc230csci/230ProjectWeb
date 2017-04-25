@@ -1,5 +1,10 @@
 <%@page language="java" import="UI.*" import = "Entity.*"%>
-<% UserUI uUI = (UserUI)session.getAttribute("userUi"); %>
+<% UserUI uUI = (UserUI)session.getAttribute("userUi");
+	String error= request.getParameter("Error");
+	if(error != null && error.equals("-1")){
+		out.println("please input value in the required fields");
+	}
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -86,11 +91,11 @@ body {font-family: Verdana,sans-serif;margin:0}
 
 <form method="post" action="Edit_action.jsp" name="editInfo">
 <table
-style="text-align: left; width: 500px; height: 154px; margin-left: auto; margin-right: auto;"
+style="text-align: left; width: 1318px; height: 154px; margin-left: auto; margin-right: auto;"
 border="1" cellpadding="2" cellspacing="2">
 <tbody>
 <tr>
-<td style="vertical-align: top; width: 300px;">First Name<br>
+<td style="vertical-align: top; width: 1000px;">First Name<br>
 </td>
 <td style="vertical-align: top;"><input name="FirstName"
 value=<%out.print(uUI.viewProfile().getFirstName());%> ><br>
@@ -107,7 +112,7 @@ value=<%out.print(uUI.viewProfile().getLastName());%>><br>
 <td style="vertical-align: top;">Username<br>
 </td>
 <td style="vertical-align: top;"><input disabled="disabled"
-name="Username" value=<%out.print(uUI.viewProfile().getUsername());%>><br>
+name="Username" value=<%out.print(uUI.getUsername());%>><br>
 </td>
 </tr>
 <tr>

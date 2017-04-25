@@ -55,14 +55,14 @@ List</td>
 <td style="vertical-align: top;">
 <form method="post" action="SaveSchool.jsp" name="Save"><input
 name="Save" value="Save" type="submit"><input name="schoolName"
-value=<%out.print(univ.getSchoolName());%> type="hidden"></form>
+value="<%out.print(univ.getSchoolName());%>" type="hidden"></form>
 </td>
 <td style="vertical-align: top;"><%out.print(univ.getSchoolName());%>
 </td>
 <td style="vertical-align: top;">
 <form method="post" action="ViewSchool.jsp" name="View"> <input
 name="View" value="View" type="submit"><input name="schoolName"
-value=<%out.print(univ.getSchoolName());%> type="hidden"></form>
+value="<%out.print(univ.getSchoolName());%>" type="hidden"></form>
 </td>
 </tr>
 <%}%>

@@ -1,5 +1,5 @@
 <%@page language="java" import="UI.*" import = "Entity.*"%>
-<% UserUI uUI = (UserUI)session.getAttribute("UserUI"); 
+<% UserUI uUI = (UserUI)session.getAttribute("userUi"); 
 %>
 <html>
 <head>

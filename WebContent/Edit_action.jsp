@@ -1,6 +1,6 @@
 <%@page language="java" import="UI.*" import = "Entity.*"%>
 <%
-UserUI userUI = (UserUI)session.getAttribute("UserUI");
+UserUI userUI = (UserUI)session.getAttribute("userUI");
 String firstName = request.getParameter("FirstName");
 String lastName = request.getParameter("LastName");
 String password = request.getParameter("Password");

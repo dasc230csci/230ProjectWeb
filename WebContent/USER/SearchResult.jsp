@@ -35,8 +35,8 @@ criteria.add(request.getParameter("emphases2"));
 criteria.add(request.getParameter("emphases3"));
 criteria.add(request.getParameter("emphases4"));
 criteria.add(request.getParameter("emphases5"));
-ArrayList<University> recommendationList = new ArrayList<University>();
-recommendationList = userUi.search(criteria);
+ArrayList<University> searched = new ArrayList<University>();
+searched = userUi.search(criteria);
 %>
 <html>
 <head>
@@ -50,8 +50,7 @@ cellspacing="2">
 <td colspan="8" rowspan="1" style="vertical-align: top;">School
 List</td>
 </tr>
-<%for(University univ : recommendationList){
-if(univ.getSchoolName().equals(request.getParameter("schoolName"))){continue;}%>
+<%for(University univ : searched){%>
 <tr>
 <td style="vertical-align: top;">
 <form method="post" action="SaveSchool.jsp" name="Save"><input

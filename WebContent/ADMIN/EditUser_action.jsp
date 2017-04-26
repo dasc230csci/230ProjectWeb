@@ -1,26 +1,14 @@
 <%@page language="java" import="UI.*" import = "Entity.*"%>
 <%
-AdminUI adminUi = (AdminUI)session.getAttribute("adminUi");
+UserUI userUI = (UserUI)session.getAttribute("UserUI");
 String firstName = request.getParameter("FirstName");
 String lastName = request.getParameter("LastName");
-String userName = request.getParameter("Username");
 String password = request.getParameter("Password");
-String type = request.getParameter("Type");
-String status = request.getParameter("Status");
-int verifyUEdit= adminUi.editUserProfile(firstName, lastName, userName, password, type, status);
-if(verifyUEdit == 0){
-	response.sendRedirect("UserEditProfile.jsp");
+boolean verifyUEdit= userUI.editProfile(firstName, lastName, password);
+if(verifyUEdit==true){
+response.sendRedirect("UserEditProfile.jsp");
 }
-else if(verifyUEdit == -1){
+else if(verifyUEdit==false){
 	response.sendRedirect("UserEditProfile.jsp?Error=-1");
-}
-else if(verifyUEdit == -2){
-	response.sendRedirect("UserEditProfile.jsp?Error=-2");
-}
-else if(verifyUEdit == -3){
-	response.sendRedirect("UserEditProfile.jsp?Error=-3");
-}
-else if(verifyUEdit == -4){
-	response.sendRedirect("UserEditProfile.jsp?Error=-4");
 }
 %>

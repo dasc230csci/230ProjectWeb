@@ -8,14 +8,15 @@ String password = request.getParameter("Password");
 String type = request.getParameter("Type");
 String status = request.getParameter("Status");
 boolean create = true;
-for(Account account : aUI.viewAllUser()){
-	if(account.getUsername().equals(uname)){
-		response.sendRedirect("Add.jsp?Error=1");
-		create = false;
-	}
-}
-if(create){
-aUI.createUser(fname, lname, uname, password, type, status);
-response.sendRedirect("AdminMenu.jsp");
-}
+out.print(aUI.viewAllUser());
+//for(Account account : aUI.viewAllUser()){
+	//if(account.getUsername().equals(uname)){
+		//response.sendRedirect("Add.jsp?Error=1");
+		//create = false;
+	//}
+//}
+//if(create){
+//aUI.createUser(fname, lname, uname, password, type, status);
+//response.sendRedirect("AdminMenu.jsp");
+//}
 %>

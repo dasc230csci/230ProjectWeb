@@ -1,4 +1,24 @@
 <html>
+<style>
+body {font-family: Verdana,sans-serif;margin:0; background-color:#444444}
+#banner{
+  width:100%;
+  background-image:url(http://i.imgur.com/TsQQMTp.png);
+  background-size:880px 680px;
+  background-repeat:no-repeat;
+  background-position:60% 46%;
+  height: 99px;
+  background-color: #333333;
+}
+#logginblock{
+	width: 400px;
+	height: 250px;
+	background-color: white;
+	background-position:center;
+	margin:auto;
+	box-shadow: 10px 10px 5px #333333;
+}
+</style>
 <head>
 <title>Login Form</title>
 <%
@@ -18,33 +38,42 @@ else if(error != null && error.equals("-4")){
 %>
 </head>
 <body>
+<div id="banner">
+</div>
 <br>
-Login form:<br>
-<br>
+<div id="logginblock">
+<center>
+<h1 >Login form</h1>
+</center>
+<center>
 <form method="post" action="Login_action.jsp" name="Login"><br>
-<table style="text-align: left; width: 266px; height: 228px;"
-border="1" cellpadding="2" cellspacing="2">
+<table style="text-align: left; width: 200px; height: 150px;"
+border="0">
 <tbody>
 <tr>
 <td style="vertical-align: top;">Username<br>
 </td>
+<tr>
 <td style="vertical-align: top;"><input name="Username"> </td>
 </tr>
 <tr>
 <td style="vertical-align: top;">Password<br>
 </td>
+</tr>
+<tr>
 <td style="vertical-align: top;"><input name="Password" type="password"> </td>
 </tr>
-
 <td style="vertical-align: top;"><input value="Log in"
-name="Log in" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td style="vertical-align: top;"><input value="Reset"
-name="Reset" type="reset"></td>
+name="Log in" type="submit">&nbsp;&nbsp;&nbsp;
+<input value="Reset"name="Reset" type="reset">
+</td>
 </tr>
 </tbody>
 </table>
+</center>
 <br>
 </form>
+</div>
 <br>
 </body>
 </html>

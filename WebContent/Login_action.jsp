@@ -6,13 +6,23 @@ LoginUI ui = new LoginUI();
 String verify = ui.verifyUser(username, password);
 if(verify.equals("u")){
 	UserUI userUi = new UserUI(username);
-	session.setAttribute("userUi", userUi);
-	response.sendRedirect("UserMenu.jsp");
+	if(userUi.viewProfile().getStatus().equals("Y")){
+		session.setAttribute("userUi", userUi);
+		response.sendRedirect("USER/UserMenu.jsp");
+	}
+	else{
+		response.sendRedirect("index.jsp?Error=3"); // Status invalid
+	}
 }
 else if(verify.equals("a")){
 	AdminUI adminUi = new AdminUI(username);
-	session.setAttribute("adminUi", adminUi);
-	response.sendRedirect("AdminMenu.jsp");
+	if(adminUi.viewProfile().getStatus().equals("Y")){
+		session.setAttribute("adminUi", adminUi);
+		response.sendRedirect("ADMIN/AdminMenu.jsp");
+	}
+	else{
+		response.sendRedirect("index.jsp?Error=3"); // Status invalid
+	}
 }
 else if(verify.equals("f")){
 	response.sendRedirect("index.jsp?Error=1"); // password invalid

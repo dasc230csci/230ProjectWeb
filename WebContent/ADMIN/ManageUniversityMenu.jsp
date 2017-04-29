@@ -97,6 +97,12 @@ for(University u : adminUi.viewUniversityList()){%>
     <input name="schoolName" value="<%out.print(u.getSchoolName());%>" type="hidden">
 </form>
 </td>
+<td style="vertical-align: top;">
+<form method="post" action="DeleteUniversity.jsp" name="Delete">
+    <input name="Delete" value="Delete" type="submit">
+    <input name="schoolName" value="<%out.print(u.getSchoolName());%>" type="hidden">
+</form>
+</td>
 </tr>
 <%}%>
 </tbody>

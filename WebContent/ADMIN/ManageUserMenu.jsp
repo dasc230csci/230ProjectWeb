@@ -1,5 +1,12 @@
 <%@page language="java" import="UI.*" import = "Entity.*"%>
-<% 
+<%
+String error = request.getParameter("Error");
+if(error != null && error.equals("1")){
+	out.println("Delete Failed");
+}
+else if(error != null && error.equals("2")){
+	out.println("Edit Failed");
+}
 AdminUI aUI = (AdminUI)session.getAttribute("adminUi");
 %>
 <html>
@@ -53,7 +60,19 @@ for(Account account: aUI.viewAllUser()){
 <td style="vertical-align: top;">
 <form method="post" action="Deactivate.jsp" name="Deactivate">
     <input name="Deactivate" value="Deactivate" type="submit">
-    <input name="Username" value=<%out.print(account.getUsername());%> type="hidden">
+    <input name="Username" value="<%out.print(account.getUsername());%>" type="hidden">
+</form>
+</td>
+<td style="vertical-align: top;">
+<form method="post" action="Reactivate.jsp" name="Reactivate">
+    <input name="Reactivate" value="Reactivate" type="submit">
+    <input name="Username" value="<%out.print(account.getUsername());%>" type="hidden">
+</form>
+</td>
+<td style="vertical-align: top;">
+<form method="post" action="DeleteUser.jsp" name="DeleteUser">
+    <input name="DeleteUser" value="DeleteUser" type="submit">
+    <input name="Username" value="<%out.print(account.getUsername());%>" type="hidden">
 </form>
 </td>
 </tr>

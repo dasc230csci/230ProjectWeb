@@ -1,6 +1,6 @@
 <%@page language="java" import="UI.*" import = "Entity.*, java.util.*"%>
 <%
-AdminUI AdminUI = (AdminUI)session.getAttribute("adminUi");
+AdminUI adminUi = (AdminUI)session.getAttribute("adminUi");
 ArrayList<String> schoolInfo = new ArrayList<String>();
 String schoolName = request.getParameter("schoolInput");
 String state = request.getParameter("stateInput");
@@ -17,20 +17,54 @@ String admitted = request.getParameter("admitInput");
 String enrolled = request.getParameter("enrolInput");
 String acedemicS = request.getParameter("acScaleInput");
 String qualOfLifeS = request.getParameter("qualScaleInput");
-String socScale = request.getParameter("socScaleInput");
+String socialS = request.getParameter("socScaleInput");
 String emphases1 = request.getParameter("emphases1");
 String emphases2 = request.getParameter("emphases2");
 String emphases3 = request.getParameter("emphases3");
 String emphases4 = request.getParameter("emphases4");
+String emphases5 = request.getParameter("emphases5");
 ArrayList<String> emphases = new ArrayList<String>();
-emphases.add(0, emphases1);
-emphases.add(1, emphases2);
-emphases.add(2, emphases3);
-emphases.add(3, emphases4);
-boolean edited = AdminUI.editUniversity(schoolName, state, location, control, numStudents, percFemale, satV, satM, expenses, finanAid, numApps, admitted, enrolled, acedemicS, socScale, qualOfLifeS, emphases);
-if(edited){
-	response.sendRedirect("AddUniversity.jsp?Error=1");
+schoolInfo.add(schoolName);
+schoolInfo.add(state);
+schoolInfo.add(location);
+schoolInfo.add(control);
+schoolInfo.add(numStudents);
+schoolInfo.add(percFemale);
+schoolInfo.add(satV);
+schoolInfo.add(satM);
+schoolInfo.add(expenses);
+schoolInfo.add(finanAid);
+schoolInfo.add(numApps);
+schoolInfo.add(admitted);
+schoolInfo.add(enrolled);
+schoolInfo.add(acedemicS);
+schoolInfo.add(socialS);
+schoolInfo.add(qualOfLifeS);
+emphases.add(emphases1);
+emphases.add(emphases2);
+emphases.add(emphases3);
+emphases.add(emphases4);
+emphases.add(emphases5);
+for(int i =0 ; i < emphases.size() ;i++){
+	int cnt =0;
+	if(emphases.get(i).equals("")){
+		for(int j = i; j < emphases.size();){
+			if(!emphases.get(j).equals("")){
+				i-=cnt;
+				break;
+			}
+			else{
+				emphases.remove(j);
+				cnt +=1;
+			}
+		}
+	}
+}
+schoolInfo.addAll(emphases);
+if(adminUi.editUniversity(schoolInfo)){
+	response.sendRedirect("ManageUniversityMenu.jsp");
 }
 else{
-	response.sendRedirect("AddUniversity.jsp?Error=2");
+	response.sendRedirect("EditUniversity.jsp?Error=1&schoolName="+schoolName);
 }
+%>

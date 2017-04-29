@@ -1,8 +1,7 @@
-<%@page language="java" import="Controller.*, java.util.*"%>
+<%@page language="java" import="Controller.*, java.util.*, UI.*"%>
 
 <%
-	boolean canCreate = true;
-	AdminFuncController adminC = new AdminFuncController();
+	AdminUI adminUi = (AdminUI)session.getAttribute("adminUi");
 	ArrayList<String> schoolInfo = new ArrayList<String>();
 	String schoolName = request.getParameter("schoolInput");
 	String state = request.getParameter("stateInput");
@@ -31,32 +30,44 @@
 	emphases.add(emphases3);
 	emphases.add(emphases4);
 	emphases.add(emphases5);
-	schoolInfo.add(0, schoolName);
-	schoolInfo.add(1, state);
-	schoolInfo.add(2, location);
-	schoolInfo.add(3, control);
-	schoolInfo.add(4, numStudents);
-	schoolInfo.add(5, percFemale);
-	schoolInfo.add(6, satV);
-	schoolInfo.add(7, satM);
-	schoolInfo.add(8, expenses);
-	schoolInfo.add(9, finanAid);
-	schoolInfo.add(10, numApps);
-	schoolInfo.add(11, admitted);
-	schoolInfo.add(12, enrolled);
-	schoolInfo.add(13, acedemicS);
-	schoolInfo.add(14, socialS);
-	schoolInfo.add(15, qualOfLifeS);
-	schoolInfo.addAll(16, emphases);
+	schoolInfo.add(schoolName);
+	schoolInfo.add(state);
+	schoolInfo.add(location);
+	schoolInfo.add(control);
+	schoolInfo.add(numStudents);
+	schoolInfo.add(percFemale);
+	schoolInfo.add(satV);
+	schoolInfo.add(satM);
+	schoolInfo.add(expenses);
+	schoolInfo.add(finanAid);
+	schoolInfo.add(numApps);
+	schoolInfo.add(admitted);
+	schoolInfo.add(enrolled);
+	schoolInfo.add(acedemicS);
+	schoolInfo.add(socialS);
+	schoolInfo.add(qualOfLifeS);
+	for(int i =0 ; i < emphases.size() ;i++){
+		int cnt =0;
+		if(emphases.get(i).equals("")){
+			for(int j = i; j < emphases.size();){
+				if(!emphases.get(j).equals("")){
+					i-=cnt;
+					break;
+				}
+				else{
+					emphases.remove(j);
+					cnt +=1;
+				}
+			}
+		}
+	}
+	schoolInfo.addAll(emphases);
 	
-	//for(University Uni: adminC.getUniversityList()){
-		//if(Uni.){
-			//response.sendRedirect("Add.jsp?Error=1");
-			//canCreate = false;
-		//}
-	if(canCreate){
-		boolean added = adminC.addUniversity(schoolInfo);
-		response.sendRedirect("AddUniversity.jsp");
+	if(adminUi.addUniversity(schoolInfo)){
+		response.sendRedirect("ManageUniversityMenu.jsp");
+	}
+	else{
+		response.sendRedirect("AddUniversity.jsp?Error=1");
 	}
 
 %>

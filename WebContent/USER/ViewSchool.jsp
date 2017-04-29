@@ -6,6 +6,13 @@ ArrayList<University> list = new ArrayList<University>();
 String schoolName = request.getParameter("schoolName");
 University univ = userUi.viewUniversityInDetail(schoolName);
 list = userUi.searchRecommendation(schoolName);
+University sameUniv = null;
+for(University u : list){
+	if(u.getSchoolName().equals(schoolName)){
+		sameUniv = u;
+	}
+}
+list.remove(sameUniv);
 %>
 <html>
 <head>

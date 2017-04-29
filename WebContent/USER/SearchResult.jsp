@@ -35,8 +35,11 @@ criteria.add(request.getParameter("emphases2"));
 criteria.add(request.getParameter("emphases3"));
 criteria.add(request.getParameter("emphases4"));
 criteria.add(request.getParameter("emphases5"));
-ArrayList<University> recommendationList = new ArrayList<University>();
-recommendationList = userUi.search(criteria);
+ArrayList<University> searched = new ArrayList<University>();
+searched = userUi.search(criteria);
+if(searched.isEmpty()){
+	response.sendRedirect("SearchMenu.jsp?Error=1");
+}
 %>
 <html>
 <head>
@@ -50,19 +53,19 @@ cellspacing="2">
 <td colspan="8" rowspan="1" style="vertical-align: top;">School
 List</td>
 </tr>
-<%for(University univ : recommendationList){%>
+<%for(University univ : searched){%>
 <tr>
 <td style="vertical-align: top;">
 <form method="post" action="SaveSchool.jsp" name="Save"><input
 name="Save" value="Save" type="submit"><input name="schoolName"
-value=<%out.print(univ.getSchoolName());%> type="hidden"></form>
+value="<%out.print(univ.getSchoolName());%>" type="hidden"></form>
 </td>
 <td style="vertical-align: top;"><%out.print(univ.getSchoolName());%>
 </td>
 <td style="vertical-align: top;">
 <form method="post" action="ViewSchool.jsp" name="View"> <input
 name="View" value="View" type="submit"><input name="schoolName"
-value=<%out.print(univ.getSchoolName());%> type="hidden"></form>
+value="<%out.print(univ.getSchoolName());%>" type="hidden"></form>
 </td>
 </tr>
 <%}%>

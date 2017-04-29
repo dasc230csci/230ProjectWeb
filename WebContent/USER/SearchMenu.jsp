@@ -1,8 +1,16 @@
+<%@ page language="java" import="Controller.*, java.util.*, UI.*, Entity.*"%>
 <html>
 <head>
 <meta content="text/html; charset=ISO-8859-1"
 http-equiv="content-type">
 <title>SearchMenu</title>
+<%
+String error = request.getParameter("Error");
+if(error != null && error.equals("1")){
+	out.println("School doesn't exist with matching with criteria");
+	out.println("<br>");
+}
+%>
 </head>
 <body>
 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
@@ -22,7 +30,7 @@ http-equiv="content-type">
 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 &nbsp;&nbsp; &nbsp;&nbsp; <big><big>Search Menu</big></big><br>
-<form method="get" action="SearchResult.jsp" name="SearchForm">
+<form method="post" action="SearchResult.jsp" name="SearchForm">
 <table style="text-align: left; height: 622px; width: 1108px;"
 border="1" cellpadding="2" cellspacing="2">
 <tbody>

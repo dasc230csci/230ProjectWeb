@@ -4,6 +4,11 @@
 <head>
 <meta content="text/html; charset=ISO-8859-1"
 http-equiv="content-type">
+<%String error = request.getParameter("Error");
+	if(error !=null && error.equals("1")){
+		out.println("Add Failed");
+	}
+%>
 <title>addUniversity</title>
 </head>
 <body>
